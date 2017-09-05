@@ -47,7 +47,10 @@ public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.AppInfoH
     public int getItemCount() {
         return data.size();
     }
-
+    public void updateData(List<AppInfo> list){
+        data= list;
+        notifyDataSetChanged();
+    }
     public class AppInfoHodler extends RecyclerView.ViewHolder {
         public TextView title;
         public TextView app_name;

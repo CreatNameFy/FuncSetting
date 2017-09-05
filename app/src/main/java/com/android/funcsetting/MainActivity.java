@@ -106,12 +106,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onPause() {
+        super.onPause();
         if(list!=null&&list.size()!=0&&db!=null){
             db.delete();
             db.addAll(list);
             db.closeDB();
         }
     }
+
+
 }
