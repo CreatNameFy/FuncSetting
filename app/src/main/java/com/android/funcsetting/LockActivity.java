@@ -16,7 +16,7 @@ import com.android.funcsetting.db.DBManager;
 
 import java.util.List;
 
-public class LockActivity extends AppCompatActivity implements View.OnClickListener {
+public class LockActivity extends AppCompatActivity {
     private final String DEFAULT_TABLE = "appinfo_default_list";
     private List<AppInfo> list;
     private RelativeLayout mFirstLayout;
@@ -53,36 +53,27 @@ public class LockActivity extends AppCompatActivity implements View.OnClickListe
         }
         @Override
         public void onClick(View v) {
-
+            AppUtils.startApp(LockActivity.this,list.get(index).getPackerName());
             switch (v.getId()){
                 case R.id.first_icon:
-                    startPager(index);
+//                    AppUtils.startApp(LockActivity.this,list.get(index).getPackerName());
 //                    Toast.makeText(LockActivity.this,"first_icon111",0).show();
                     break;
                 case R.id.second_icon:
-                    startPager(index);
 //                    Toast.makeText(LockActivity.this,"second_icon222"+index,0).show();
                     break;
                 case R.id.third_icon:
-                    startPager(index);
 //                    Toast.makeText(LockActivity.this,"third_icon333"+index,0).show();
                     break;
                 case R.id.fourth_icon:
-                    startPager(index);
 //                    Toast.makeText(LockActivity.this,"fourth_icon444"+index,0).show();
                     break;
                 case R.id.fifth_icon:
-                    startPager(index);
 //                    Toast.makeText(LockActivity.this,"fifth_icon555"+index,0).show();
                     break;
+
             }
         }
-    }
-    public void startPager(int index){
-        AppInfo info=list.get(index);
-        Toast.makeText(LockActivity.this,info.getPackerName()+"---------"+index,0).show();
-        Intent intent=new Intent(info.getPackerName());
-//        context.startActivity(intent);
     }
     private void initData() {
         list = getLockIconData();
@@ -149,26 +140,5 @@ public class LockActivity extends AppCompatActivity implements View.OnClickListe
         db = AppDB.getInstance(this);
         list = db.getDefaultApp(DEFAULT_TABLE);
         return AppUtils.getAppInfo(this, list);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.first_icon:
-                Toast.makeText(LockActivity.this,"first_icon111",0).show();
-                break;
-            case R.id.second_icon:
-                Toast.makeText(LockActivity.this,"second_icon222",0).show();
-                break;
-            case R.id.third_icon:
-                Toast.makeText(LockActivity.this,"third_icon333",0).show();
-                break;
-            case R.id.fourth_icon:
-                Toast.makeText(LockActivity.this,"fourth_icon444",0).show();
-                break;
-            case R.id.fifth_icon:
-                Toast.makeText(LockActivity.this,"fifth_icon555",0).show();
-                break;
-        }
     }
 }
