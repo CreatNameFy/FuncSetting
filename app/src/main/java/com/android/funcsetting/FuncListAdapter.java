@@ -102,10 +102,12 @@ public class FuncListAdapter extends RecyclerView.Adapter<FuncListAdapter.AppInf
                             deleteData(position);
                         } else {
                             msg = "已经剩下最后一个了";
+                            AppUtils.showDialog(mContext,"fsdhfjkasdhfkjheufskjfhsdfsdfhjk");
                         }
                     } else if (viewType == AppUtils.APPS) {
                         if (MainActivity.defaultNum == 5) {
                             msg = "默认数量已经是最大了";
+                            AppUtils.showDialog(mContext,"fsdhfjkasdhfkjheufskjfhsdfsdfhjk");
                         } else {
                             msg = "add";
                             addData(position);

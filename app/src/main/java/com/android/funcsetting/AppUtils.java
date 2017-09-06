@@ -1,8 +1,10 @@
 package com.android.funcsetting;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
@@ -12,6 +14,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -120,5 +123,17 @@ public class AppUtils {
                 }
             }
         }.start();
+    }
+    public static void showDialog(final Context context, String content){
+        AlertDialog.Builder dialog=new AlertDialog.Builder(context,R.style.Theme_AppCompat_Light_Dialog_Alert_Self);
+        dialog.setMessage(content);
+        dialog.setPositiveButton("go to it", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+
+        dialog.setCancelable(false);
+        dialog.show();
     }
 }
